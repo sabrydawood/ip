@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ipAdress</title>
+</head>
+<body style="background: gray;">
+  <div style="
+  margin: 40% auto 0 auto;
+  padding: 5px ;
+    background: aqua;
+  color : white;
+  display: flex;
+  font-size: 13px;
+  align-items: center;
+  border: 1px solid red;
+border-radius: 10px;
+  " >
+    
+  <p style="margin-right : 5px;">
+  Your ip address is : 
+  </p>
+	<p id="ip">0.0.0.0</p>
+  </div>
+  <center>
+<button id="button"
+onclick="fetch_ip()"
+style="  
+background: pink;
+margin : 5px 0 0 0;
+border: 1px solid red;
+border-radius: 10px;
+  color : white;
+  padding: 5px 1px;"
+  >Click me to get ip</button>
+  </center>
+  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const ipAdress = document.getElementById("ip")
+const fetch_ip = async () => {
+    ipAdress.innerHTML = "loading ...."
+const res = await axios.get("https://api.ipify.org?format=json")
+  ipAdress.innerHTML = res.data.ip
+};
+  </script>
+</body>
+</html>
